@@ -1,0 +1,185 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+	<meta charset="UTF-8">
+	<title>slide image with Js</title>
+	
+	<style type="text/css"> 
+	
+	.slider{
+		width: 1000px;
+		margin: 0 auto;
+		border-radius: 15px;
+		//overflow: hidden;
+		display: flex; 
+		flex-direction: column;
+		position: relative;
+		transition: all linear 3s;
+	}
+	.slides{
+		width: 100%;
+		height: 100%;
+		display: flex;
+		transition: all linear 3s;
+	}
+	.slides input:{
+	
+		display: none;
+	}
+	.slide{
+		width: 100%;
+		transition: all linear 3s;
+	}
+	.slide img{
+		width:1000px;
+		height:500px;
+		transition: all linear 3s;
+	}
+	.slide.active{
+		margin-left:100%;
+	}
+	
+	
+	.manual-btn{
+		color: white;
+		padding: 10px;
+		cursor: pointer;
+		background-color: rgba(255,255,255, 1);
+		color:  black;
+		border-radius: 50%;
+		font-weight: 600;
+		transition: ease.5s;
+	}
+	.manual-btn:hover {
+		background-color:inherit;
+		color: white;
+		border: 1px solid white;
+	}
+	.manual-btn.active{
+		background-color: green;
+		color: white;
+	}
+	
+	.input{
+		position: absolute;
+		bottom: 20px;
+		left: 30%;
+	}
+	.slideIndex{
+		position: absolute;
+		top: 5px;
+		left: 50%;
+		color: white;
+	}
+	
+	</style>
+	
+</head>
+<body>
+	<div class="slider"> 
+	
+	
+		<div class="slides">
+		
+			<div class="slide first">
+				<div class="slideIndex">1/10</div>
+				<img src="01.webp" alt="" />
+			</div>
+			<div class="slide">
+				<div class="slideIndex">2/10</div>
+				<img src="02.jpg" alt="" />
+			</div>
+			<div class="slide">
+				<div class="slideIndex">3/10</div>
+				<img src="03.jpg" alt="" />
+			</div>
+			
+			<div class="slide">
+				<div class="slideIndex">4/10</div>
+				<img src="04.jpg" alt="" />
+			</div>
+			<div class="slide">
+				<div class="slideIndex">5/10</div>
+				<img src="05.jpg" alt="" />
+			</div>
+			<div class="slide">
+				<div class="slideIndex">6/10</div>
+				<img src="06.jpg" alt="" />
+			</div>
+			<div class="slide">
+				<div class="slideIndex">7/10</div>
+				<img src="07.jpg" alt="" />
+			</div>
+			<div class="slide">
+				<div class="slideIndex">8/10</div>
+				<img src="08.jpg" alt="" />
+			</div>
+			<div class="slide">
+				<div class="slideIndex">9/10</div>
+				<img src="09.jpg" alt="" />
+			</div>
+			<div class="slide">
+				<div class="slideIndex">10/10</div>
+				<img src="10.jpg" alt="" />
+			</div>
+		</div>
+			
+			
+		<div class="input"> 
+			<label  class="manual-btn" onclick="currentSlide(1)">01</label>
+			<label  class="manual-btn" onclick="currentSlide(2)">02</label>
+			<label  class="manual-btn" onclick="currentSlide(3)">03</label>
+			<label  class="manual-btn" onclick="currentSlide(4)">04</label>
+			<label  class="manual-btn" onclick="currentSlide(5)">05</label>
+			<label  class="manual-btn" onclick="currentSlide(6)">06</label>
+			<label  class="manual-btn" onclick="currentSlide(7)">07</label>
+			<label  class="manual-btn" onclick="currentSlide(8)">08</label>
+			<label  class="manual-btn" onclick="currentSlide(9)">09</label>
+			<label  class="manual-btn" onclick="currentSlide(10)">10</label>
+		</div>
+	</div>
+	
+	
+	<script type="text/javascript"> 
+		
+		var slideIndex = 1;
+		showSlides(slideIndex);
+
+		// Next/previous controls
+		function plusSlides(n) {
+		  showSlides(slideIndex += n);
+		}
+
+		// Thumbnail image controls
+		function currentSlide(n) {
+		  showSlides(slideIndex = n);
+		}
+
+		function showSlides(n) {
+		  var i;
+		  var slides = document.getElementsByClassName("slide");
+		  var dots = document.getElementsByClassName("manual-btn");
+		  if (n > slides.length) {slideIndex = 1}
+		  if (n < 1) {slideIndex = slides.length}
+		  for (i = 0; i < slides.length; i++) {
+			  slides[i].style.display = "none";
+		  }
+		  
+		    for (i = 0; i < dots.length; i++) {
+				dots[i].className = dots[i].className.replace(" active", "");
+			}
+		 
+		  slides[slideIndex-1].style.display = "inline";
+		  slides[slideIndex-1].ClassName += "active";
+		  dots[slideIndex-1].className += " active";
+		  
+		} 
+		
+	
+		
+		
+	</script>
+	
+	
+</body>
+</html>
